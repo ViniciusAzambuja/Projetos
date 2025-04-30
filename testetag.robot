@@ -8,6 +8,8 @@ ${USERNAME}      Admin
 ${PASSWORD}      admin123
 ${LOGINBOTAO}    css=.orangehrm-login-button
 
+#Esse teste é somente afins de Estudo
+
 *** Keywords ***
 Given o usuário acessa o site
     Log    Abrindo o navegador e acessando a URL ${URL}
@@ -44,7 +46,7 @@ when ele preenche os campos do cadastro
     Input Text             name=firstName    Gremista
 
 *** Test Cases ***
-Cenário 1: Login bem-sucedido no sistema
+Cenário 1: Login bem sucedido no sistema
     [Tags]    login    positivo    regressivo
     Given o usuário acessa o site
     When ele preenche o usuário e a senha
