@@ -47,14 +47,14 @@ when ele preenche os campos do cadastro
 
 *** Test Cases ***
 Cenário 1: Login bem sucedido no sistema
-    [Tags]    login    positivo    regressivo
+    [Tags]    login    positivo    
     Given o usuário acessa o site
     When ele preenche o usuário e a senha
     And ele clica no botão de login
     Then ele deve ver o dashboard
 
 Cenário 2: Edição de dados pessoais após login
-    [Tags]    cadastro    positivo    regressivo
+    [Tags]    cadastro    positivo    
     Given o usuário acessa o site
     When ele preenche o usuário e a senha
     And ele clica no botão de login
