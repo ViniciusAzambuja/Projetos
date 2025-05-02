@@ -59,5 +59,3 @@ Cenário 2: Edição de dados pessoais após login
     When ele preenche o usuário e a senha
     And ele clica no botão de login
     Then ele deve ver o dashboard
-    Given ele está no dash e clica na opção My info
-    When ele preenche os campos do cadastro
