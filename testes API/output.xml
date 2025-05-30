@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.4 on win32)" generated="2025-05-30T14:48:05.314461" rpa="false" schemaversion="5">
+<suite id="s1" name="Apiteste" source="C:\Projetos\testes API\apiteste.robot">
+<test id="s1-t1" name="API 14: OBTER detalhes da conta do usuário por e-mail" line="48">
+<kw name=" OBTER detalhes da conta do usuário por e-mail" owner="apiteste">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-30T14:48:05.736980" level="INFO">Creating Session using : alias=sessao_obter_conta, url=https://automationexercise.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=sessao_obter_conta</arg>
+<arg>url=${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-30T14:48:05.736980" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-05-30T14:48:06.608386" level="INFO">GET Request : url=https://automationexercise.com/api/getUserDetailByEmail?name=Renata 
+ path_url=/api/getUserDetailByEmail?name=Renata 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-05-30T14:48:06.608386" level="INFO">GET Response : url=https://automationexercise.com/api/getUserDetailByEmail?name=Renata 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 30 May 2025 17:48:08 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept,Cookie,Accept-Encoding', 'Referrer-Policy': 'same-origin', 'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff', 'Allow': 'PUT, OPTIONS, POST, GET, DELETE', 'X-Powered-By': 'Phusion Passenger(R) 6.0.23', 'Status': '200 OK', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=XMlvIBEvPfaoGA7487HWgagocf2bPpXFNRx2lecvl6h3IoIEWXLUUaLMK6RK%2BQaKfWdm1QsrD%2FFd8YinurYecYoTSyNcUBbwyMlvZ5TA4jCB5fL4EbFi2MsYl0NajcHlAtc%3D"}]}', 'Server': 'cloudflare', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': '94800f818c2cd917-GRU', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"responseCode": 400, "message": "Bad request, email parameter is missing in GET request."} 
+ </msg>
+<msg time="2025-05-30T14:48:06.608386" level="INFO">C:\Users\Vinicius Azambuja\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'automationexercise.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-30T14:48:06.608386" level="INFO">${resposta_marca} = &lt;Response [200]&gt;</msg>
+<var>${resposta_marca}</var>
+<arg>alias=sessao_obter_conta</arg>
+<arg>url=/api/getUserDetailByEmail?name=Renata</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-30T14:48:05.736980" elapsed="0.871406"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.609371" level="INFO">{"responseCode": 400, "message": "Bad request, email parameter is missing in GET request."}</msg>
+<arg>${resposta_marca.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.608386" elapsed="0.000985"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.609371" level="INFO">{'responseCode': 400, 'message': 'Bad request, email parameter is missing in GET request.'}</msg>
+<arg>${resposta_marca.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.609371" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.610371" level="INFO">200</msg>
+<arg>${resposta_marca.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.609371" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.610371" level="INFO">OK</msg>
+<arg>${resposta_marca.reason}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.610371" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.610371" level="INFO">{'Date': 'Fri, 30 May 2025 17:48:08 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept,Cookie,Accept-Encoding', 'Referrer-Policy': 'same-origin', 'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff', 'Allow': 'PUT, OPTIONS, POST, GET, DELETE', 'X-Powered-By': 'Phusion Passenger(R) 6.0.23', 'Status': '200 OK', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=XMlvIBEvPfaoGA7487HWgagocf2bPpXFNRx2lecvl6h3IoIEWXLUUaLMK6RK%2BQaKfWdm1QsrD%2FFd8YinurYecYoTSyNcUBbwyMlvZ5TA4jCB5fL4EbFi2MsYl0NajcHlAtc%3D"}]}', 'Server': 'cloudflare', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': '94800f818c2cd917-GRU', 'alt-svc': 'h3=":443"; ma=86400'}</msg>
+<arg>${resposta_marca.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.610371" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.611373" level="INFO">0:00:00.868247</msg>
+<arg>${resposta_marca.elapsed}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.611373" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T14:48:06.611373" level="INFO">{"responseCode": 400, "message": "Bad request, email parameter is missing in GET request."}</msg>
+<arg>${resposta_marca.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T14:48:06.611373" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-30T14:48:05.735976" elapsed="0.875397"/>
+</kw>
+<status status="PASS" start="2025-05-30T14:48:05.735976" elapsed="0.876406"/>
+</test>
+<status status="PASS" start="2025-05-30T14:48:05.316462" elapsed="1.295920"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Apiteste" id="s1" pass="1" fail="0" skip="0">Apiteste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
